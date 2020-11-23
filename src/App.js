@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from
+"mdbreact";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import SearchPage from "./component/search";
+import  NavbarPage from "./component/sideBar";
+import InputPage from "./component/criminalrecord";
+import BasicTable from "./component/searchResult";
+import FormPage from "./component/contactus";
 
-function App() {
+
+
+
+const CarouselPage = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MDBContainer>  
+       
+      <Router>
+              <Route path="/" exact component={SearchPage} />
+              <Route path="/contact" exact component={FormPage} />
+              <Route path="/basic" exact component={BasicTable} />
+              <Route path="/criminal" exact component={InputPage} />
+
+      </Router>
+      
+     
+      
+    </MDBContainer>
   );
 }
 
-export default App;
+export default CarouselPage;
